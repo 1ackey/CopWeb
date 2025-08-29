@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "title": "Product Designer",
+    "company": "Facebook",
+    "status": "open",
+    "budget": 8000,
+    "level": "Expert",
+    "logo": "f",
+    "skills": ["Figma", "Illustration", "After Effect", "Blender"],
+    "description": "Facebook is opening opportunities to join our team! We are looking for talented and passionate...",
+    "postedAt": "47 min ago",
+    "responsibilities": [
+      "Develop and maintain web applications",
+      "Collaborate with backend developers"
+    ],
+    "requirements": [
+      "Proficient in React and TypeScript",
+      "Experience with TailwindCSS"]
+  },
+  {
+    "id": 2,
+    "title": "Frontend Developer",
+    "company": "Google",
+    "status": "open",
+    "budget": 10000,
+    "level": "Intermediate",
+    "logo": "g",
+    "skills": ["React", "Next.js", "TailwindCSS"],
+    "description": "Join Google’s frontend team to build scalable and elegant UI...",
+    "postedAt": "2 hours ago",
+    "responsibilities": [
+      "Develop and maintain web applications",
+      "Collaborate with backend developers"
+    ],
+    "requirements": [
+      "Proficient in React and TypeScript",
+      "Experience with TailwindCSS"]
+  },
+  {
+    "id": 3,
+    "title": "Frontend Developer",
+    "company": "Google",
+    "status": "open",
+    "budget": 10000,
+    "level": "Intermediate",
+    "logo": "g",
+    "skills": ["React", "Next.js", "TailwindCSS"],
+    "description": "Join Google’s frontend team to build scalable and elegant UI...",
+    "postedAt": "2 hours ago",
+    "responsibilities": [
+      "Develop and maintain web applications",
+      "Collaborate with backend developers"
+    ],
+    "requirements": [
+      "Proficient in React and TypeScript",
+      "Experience with TailwindCSS"]
+  }
+]
