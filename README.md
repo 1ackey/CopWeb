@@ -1,69 +1,92 @@
-# React + TypeScript + Vite
+# 🎓 UIBE 英语学院内推简历投递网站
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+本项目是基于 **React + TypeScript + Vite** 开发的内推简历投递与管理系统前端设计，主要面向企业与学生，并对英语学院内部教师管理：
 
-Currently, two official plugins are available:
+* 学生可在线上传简历（PDF/DOCX/DOC），并浏览职位信息。
+* 企业可查看已投递的简历，并支持一键下载所有简历。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ 功能特性
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **学生端**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+  * 上传简历（支持 PDF，最大 10MB）
+  * 浏览职位信息（含职位描述、职责、要求）
+  * 在线申请职位
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+* **企业端**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+  * 浏览所有投递的简历
+  * 下载单个简历或一键下载全部简历
+  * 下载进度实时显示（进度条预览）
+
+---
+
+## 🛠️ 前端技术栈
+
+* **框架**: [React 18](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+* **构建工具**: [Vite](https://vitejs.dev/)
+* **样式**: [Tailwind CSS](https://tailwindcss.com/)
+* **数据存储**: 本地 JSON 文件模拟 (e.g. `jobs.json`, `Resume.json`) （后期将完善后端）
+* **依赖管理**: pnpm / npm
+
+---
+
+## 📂 项目结构
+
+```bash
+CopWeb/
+├── src/
+│   ├── components/       # 可复用的组件 (JobCard, TransitionButton 等)
+│   ├── pages/
+│   │   ├── students/     # 学生端页面 (SearchAndJobs.tsx)
+│   │   ├── company/      # 企业端页面 (ResumeDownloadPage.tsx)
+│   ├── services/         # 模拟数据存放，用作以后后端接入 (jobs.json, Resume.json)
+│   ├── App.tsx           # 应用入口
+│   └── main.tsx          # React 渲染入口
+├── public/               # 静态资源
+├── package.json
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 本地运行
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. 克隆项目
+
+   ```bash
+   git clone https://github.com/1ackey/CopWeb.git
+   cd CopWeb
+   ```
+
+2. 安装依赖
+
+   ```bash
+   npm install
+   # 或者
+   pnpm install
+   ```
+
+3. 启动项目
+
+   ```bash
+   npm run dev
+   ```
+
+4. 打包构建
+
+   ```bash
+   npm run build
+   ```
+---
+
+## 📌 后续优化方向
+
+* 接入后端 API 管理（存储简历、职位数据） 预期使用flask框架
+* 支持在线预览简历（PDF 预览）
+* 增加搜索与筛选功能（按职位/公司/投递时间等）
+* 增加权限控制（学生/企业登录系统）
+
+---
