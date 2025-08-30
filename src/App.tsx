@@ -4,7 +4,7 @@ import "./App.css";
 
 // 引入子组件
 import Header from "./components/Header";
-import Sidebar from "./pages/students/sidebar";
+import Sidebar from "./pages/students/Sidebar";
 import SearchAndJobs from "./pages/students/SearchAndJobs";
 import JobDetail from "./pages/students/Jobdetail";
 import React, { useState } from "react";

@@ -19,25 +19,21 @@ const Header = () => (
                 clipRule="evenodd"
               />
             </svg>
-            <span className="font-bold text-2xl">UIBE SIS</span>
+            <a href="https://sis.uibe.edu.cn/" className="font-bold text-2xl">UIBE SIS</a>
+
           </div>
         </div>
       </div>
-      <nav>
+      <nav> 
         <ul className="flex space-x-4">
           <li>
             <a href="#" className="text-gray-600 hover:text-indigo-600 font-medium">
-              Home
+              我的
             </a>
           </li>
           <li>
             <a href="#" className="text-gray-600 hover:text-indigo-600 font-medium">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="text-gray-600 hover:text-indigo-600 font-medium">
-              Contact
+              登出
             </a>
           </li>
         </ul>

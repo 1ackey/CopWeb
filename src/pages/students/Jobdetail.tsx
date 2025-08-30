@@ -84,36 +84,64 @@ const JobDetail: React.FC<JobDetailProps> = ({ job, onBackClick }) => (
         </ul>
       </div>
 
-      {/* Upload resume area */}
-    <div className="mt-8 p-6 border-2 border-dashed border-gray-300 rounded-lg text-center bg-gray-50">
+        {/* Upload resume area */}
+        <div className="mt-8 p-6 border-2 border-dashed border-gray-300 rounded-lg text-center bg-gray-50">
         <div className="flex flex-col items-center">
-          <svg
+            <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
             strokeWidth={1.5}
             stroke="currentColor"
             className="w-10 h-10 text-gray-400 mb-2"
-          >
+            >
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 14.25v-2.146a1.5 1.5 0 00-1.282-1.48l-4.43-1.096a1.5 1.5 0 00-.916 0L5.782 10.62a1.5 1.5 0 00-1.282 1.48v2.146a1.5 1.5 0 001.5 1.5h12a1.5 1.5 0 001.5-1.5z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19.5 14.25v-2.146a1.5 1.5 0 00-1.282-1.48l-4.43-1.096a1.5 1.5 0 00-.916 0L5.782 10.62a1.5 1.5 0 00-1.282 1.48v2.146a1.5 1.5 0 001.5 1.5h12a1.5 1.5 0 001.5-1.5z"
             />
             <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M10.5 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm6 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M10.5 6a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm6 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
             />
-          </svg>
-          <p className="text-sm font-semibold text-gray-900">
+            </svg>
+
+            <p className="text-sm font-semibold text-gray-900">
             Click to upload or drag and drop
-          </p>
-          <p className="mt-1 text-xs text-gray-600">
+            </p>
+            <p className="mt-1 text-xs text-gray-600">
             PDF, DOCX, or DOC (max 10MB)
-          </p>
+            </p>
+
+            {/* 文件选择 */}
+            <input
+            type="file"
+            accept=".pdf,.doc,.docx"
+            onChange={async (e) => {
+                if (!e.target.files || e.target.files.length === 0) return;
+                const file = e.target.files[0];
+
+                const formData = new FormData();
+                formData.append("resume", file);
+
+                // 发给后端
+                const res = await fetch("http://localhost:3001/upload", {
+                method: "POST",
+                body: formData,
+                });
+
+                if (res.ok) {
+                alert("上传成功！");
+                } else {
+                alert("上传失败！");
+                }
+            }}
+            className="mt-3"
+            />
         </div>
-      </div>
+        </div>
+
     </div>
   </main>
 );
