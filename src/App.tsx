@@ -1,7 +1,7 @@
 
 import "./index.css";
 import "./App.css";
-
+//学生简历申请页面
 // // 引入子组件
 // import Header from "./components/Header";
 // import Sidebar from "./pages/students/Sidebar";
@@ -51,19 +51,46 @@ import "./App.css";
 //     </div>
 //   );
 // };
+// 教师下载简历页面
+// import React from "react";
+// import ResumeDownloadPage from "./pages/company/DownloadCVcard";
+// import Header from "./components/Header";
 
-import React from "react";
-import ResumeDownloadPage from "./pages/company/DownloadCVcard";
+// const App: React.FC = () => {
+//   return (
+//     <div className="min-h-screen bg-gray-100 p-4 font-sans">
+//       <Header />
+//       <ResumeDownloadPage />
+//     </div>
+
+//   );
+// };
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import  Sidebar  from "./components/Sidebar";
+import UserManagement from "./pages/teachers/UserManagement";
+import CompanyManagement from "./pages/teachers/CompanyManagement";
+import JobManagement from "./pages/teachers/JobManagement";
+import DataVisualization from "./pages/teachers/DataVisualization";
+import ResumeManagement from "./pages/teachers/ResumeManagement";
 import Header from "./components/Header";
 
-const App: React.FC = () => {
+export default function App() {
   return (
-    <div className="min-h-screen bg-gray-100 p-4 font-sans">
+    <Router>
       <Header />
-      <ResumeDownloadPage />
-    </div>
-
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-1 bg-gray-50 min-h-screen">
+          <Routes>
+            <Route path="/users" element={<UserManagement />} />
+            <Route path="/companies" element={<CompanyManagement />} />
+            <Route path="/jobs" element={<JobManagement />} />
+            <Route path="/data" element={<DataVisualization />} />
+            <Route path="/resumes" element={<ResumeManagement />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
-};
-
-export default App;
+}
